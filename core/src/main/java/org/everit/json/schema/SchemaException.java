@@ -12,7 +12,7 @@ import static java.lang.String.format;
  * Thrown by {@link org.everit.json.schema.loader.SchemaLoader#load()} when it encounters
  * un-parseable schema JSON definition.
  *
- * @author @erosb
+ * @author erosb
  */
 public class SchemaException extends RuntimeException {
 
