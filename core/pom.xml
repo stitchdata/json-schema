@@ -22,7 +22,7 @@
 
     <groupId>com.doctusoft</groupId>
     <artifactId>json-schema-java7</artifactId>
-    <version>1.4.1</version>
+    <version>1.4.1.1</version>
 
     <packaging>bundle</packaging>
 
@@ -80,8 +80,8 @@
                         <Import-Package>*
                         </Import-Package>
                         <Export-Package>
-                            org.everit.json.schema-java7;version=${project.version},
-                            org.everit.json.schema-java7.loader;version=${project.version}
+                            org.everit.json.schema;version=${project.version},
+                            org.everit.json.schema.loader;version=${project.version}
                         </Export-Package>
                     </instructions>
                 </configuration>
