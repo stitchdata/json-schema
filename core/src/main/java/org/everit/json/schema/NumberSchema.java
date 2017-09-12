@@ -18,6 +18,7 @@ package org.everit.json.schema;
 import org.everit.json.schema.internal.JSONPrinter;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Objects;
 
 /**
@@ -190,7 +191,7 @@ public class NumberSchema extends Schema {
                 throw new ValidationException(this, Number.class, subject);
             }
         } else {
-            if (!(subject instanceof Integer || subject instanceof Long) && requiresInteger) {
+            if (!(subject instanceof Integer || subject instanceof Long || subject instanceof BigInteger) && requiresInteger) {
                 throw new ValidationException(this, Integer.class, subject, "type");
             }
             double intSubject = ((Number) subject).doubleValue();
