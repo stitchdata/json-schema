@@ -57,8 +57,8 @@ public class CombinedSchemaTest {
     @Test(expected = ValidationException.class)
     public void anyOfInvalid() {
         CombinedSchema.anyOf(Arrays.<Schema>asList(
-                StringSchema.builder().maxLength(2).build(),
-                StringSchema.builder().minLength(4).build()))
+                StringSchema.builder().maxLength((long)2).build(),
+                StringSchema.builder().minLength((long)4).build()))
                 .build().validate("foo");
     }
 
