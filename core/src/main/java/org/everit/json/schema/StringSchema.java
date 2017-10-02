@@ -33,9 +33,9 @@ public class StringSchema extends Schema {
      */
     public static class Builder extends Schema.Builder<StringSchema> {
 
-        private Integer minLength;
+        private Long minLength;
 
-        private Integer maxLength;
+        private Long maxLength;
 
         private String pattern;
 
@@ -61,12 +61,12 @@ public class StringSchema extends Schema {
             return this;
         }
 
-        public Builder maxLength(final Integer maxLength) {
+        public Builder maxLength(final Long maxLength) {
             this.maxLength = maxLength;
             return this;
         }
 
-        public Builder minLength(final Integer minLength) {
+        public Builder minLength(final Long minLength) {
             this.minLength = minLength;
             return this;
         }
@@ -87,9 +87,9 @@ public class StringSchema extends Schema {
         return new Builder();
     }
 
-    private final Integer minLength;
+    private final Long minLength;
 
-    private final Integer maxLength;
+    private final Long maxLength;
 
     private final Pattern pattern;
 
@@ -119,11 +119,11 @@ public class StringSchema extends Schema {
         this.formatValidator = builder.formatValidator;
     }
 
-    public Integer getMaxLength() {
+    public Long getMaxLength() {
         return maxLength;
     }
 
-    public Integer getMinLength() {
+    public Long getMinLength() {
         return minLength;
     }
 
@@ -132,13 +132,13 @@ public class StringSchema extends Schema {
     }
 
     private List<ValidationException> testLength(final String subject) {
-        int actualLength = subject.codePointCount(0, subject.length());
+        Long actualLength = (long)subject.codePointCount(0, subject.length());
         List<ValidationException> rval = new ArrayList<>();
-        if (minLength != null && actualLength < minLength.intValue()) {
+        if (minLength != null && actualLength < minLength.longValue()) {
             rval.add(new ValidationException(this, "expected minLength: " + minLength + ", actual: "
                     + actualLength, "minLength"));
         }
-        if (maxLength != null && actualLength > maxLength.intValue()) {
+        if (maxLength != null && actualLength > maxLength.longValue()) {
             rval.add(new ValidationException(this, "expected maxLength: " + maxLength + ", actual: "
                     + actualLength, "maxLength"));
         }

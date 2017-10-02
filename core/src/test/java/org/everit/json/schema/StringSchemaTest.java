@@ -56,7 +56,7 @@ public class StringSchemaTest {
 
     @Test
     public void maxLength() {
-        StringSchema subject = StringSchema.builder().maxLength(3).build();
+        StringSchema subject = StringSchema.builder().maxLength((long)3).build();
         TestSupport.failureOf(subject)
                 .expectedKeyword("maxLength")
                 .input("foobar")
@@ -65,7 +65,7 @@ public class StringSchemaTest {
 
     @Test
     public void minLength() {
-        StringSchema subject = StringSchema.builder().minLength(2).build();
+        StringSchema subject = StringSchema.builder().minLength((long)2).build();
         TestSupport.failureOf(subject)
                 .expectedKeyword("minLength")
                 .input("a")
@@ -75,7 +75,7 @@ public class StringSchemaTest {
     @Test
     public void multipleViolations() {
         try {
-            StringSchema.builder().minLength(3).maxLength(1).pattern("^b.*").build().validate("ab");
+            StringSchema.builder().minLength((long)3).maxLength((long)1).pattern("^b.*").build().validate("ab");
             Assert.fail();
         } catch (ValidationException e) {
             Assert.assertEquals(3, e.getCausingExceptions().size());

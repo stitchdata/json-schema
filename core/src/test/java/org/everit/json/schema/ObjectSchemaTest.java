@@ -90,7 +90,7 @@ public class ObjectSchemaTest {
     @Test
     public void multipleSchemaDepViolation() {
         Schema billingAddressSchema = new StringSchema();
-        Schema billingNameSchema = StringSchema.builder().minLength(4).build();
+        Schema billingNameSchema = StringSchema.builder().minLength((long)4).build();
         ObjectSchema subject = ObjectSchema.builder()
                 .addPropertySchema("name", new StringSchema())
                 .addPropertySchema("credit_card", NumberSchema.builder().build())

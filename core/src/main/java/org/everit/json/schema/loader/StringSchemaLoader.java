@@ -20,16 +20,16 @@ public class StringSchemaLoader {
 
     public StringSchema.Builder load() {
         final StringSchema.Builder builder = StringSchema.builder();
-        ls.ifPresent("minLength", Integer.class, new Consumer<Integer>() {
+        ls.ifPresent("minLength", Number.class, new Consumer<Number>() {
             @Override
-            public void accept(Integer integer) {
-                builder.minLength(integer);
+            public void accept(Number number) {
+                builder.minLength(number.longValue());
             }
         });
-        ls.ifPresent("maxLength", Integer.class, new Consumer<Integer>() {
+        ls.ifPresent("maxLength", Number.class, new Consumer<Number>() {
             @Override
-            public void accept(Integer integer) {
-                builder.maxLength(integer);
+            public void accept(Number number) {
+                builder.maxLength(number.longValue());
             }
         });
         ls.ifPresent("pattern", String.class, new Consumer<String>() {
