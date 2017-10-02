@@ -22,7 +22,7 @@
 
     <groupId>com.stitchdata</groupId>
     <artifactId>json-schema-java7</artifactId>
-    <version>1.5.0.0</version>
+    <version>1.5.1.0</version>
 
     <packaging>jar</packaging>
 
